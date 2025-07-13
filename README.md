@@ -12,7 +12,7 @@ After the proper startup, the camera resets its position and, depending on the c
 In ```guardian``` mode, the camera waits for a certain time, then scans the location, moves one step horizontally, and then repeats till the max rotation value is reached. After this, a new horizontal value is chosen, and the process repeats till all the area available is scanned.
 ```NOTE: DEBUG mode needs to be enabled to view the camera feed, otherwise headless mode will start = no GUI.```
 
-In ```manual``` mode, by clicking on the rendered image (DEBUG mode neds to be enables), the user can use the 'wsad' keys to position the camera on a proper region, if object is detected, then the camera takes the control and moves its center point to the detected object center point.
+In ```manual``` mode, by clicking on the rendered image (DEBUG mode neds to be enabled), the user can use the 'wsad' keys to position the camera on a proper region, if object is detected, then the camera takes the control and moves its center point to the detected object center point (see above when target is locked, green goes to red color on detections).
 
 ### Install
 
@@ -26,7 +26,7 @@ pip install wsdiscovery onvif-zeep opencv-python requests
 
 ### Configuration
 
-Before using the program, you need to fill out the right parameters of the camera on your network. The port can vary for different ONVIF cameras, including the user/password. For SriHome cameras, there is a default admin user defined. You need to find out the right password or set it up as usual. A useful ONVIF camera tool on Linux is [4].
+Before using the program, you need to fill out the right parameters of the camera on your network. The port can vary for different ONVIF cameras, including the user/password. For SriHome cameras, there is a default admin user defined. You need to find out the right password or set it up as usual. A useful ONVIF camera tool on Linux is [4], could help.
 
 ```python
 IP=""               # Camera IP address, leave empty for auto-discovery
@@ -40,7 +40,7 @@ PASS="YYY"       # Password, fill it if no anonymous access is allowed
 
 For the current implementation, a MobileNet v2 with an SSD head is used. More information on the model or variants can be found here: [5]. To detect different objects, use the right COCO definitions from [6] and add them to the config file like:
 ```code
-COCO_90_LABEL_TO_DETECT = {1:"person"}
+COCO_90_LABEL_TO_DETECT = {1:"person", 17:"cat",...}
 ```
 For custom detectors the ```DnnObjectDetect``` class can be extended.
 
