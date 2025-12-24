@@ -1,6 +1,6 @@
 # ONVIF camera object tracker
 
-The project implements an object tracker using a ONVIF-enabled surveillance camera [1,2]. Can be used to deploy your object detection system (like a lazy cat detector :), see below), while running this implementation on a low-end device like a Raspberry Pi.
+The project implements an object tracker using a ONVIF-enabled surveillance camera [1,2]. Using the Camera PTZ movements, the ```target``` object is centered automatically to the image width / height centers. Can be used to deploy your object detection system (like a lazy cat detector :), see below), while running this implementation on a low-end device like a Raspberry Pi.
 
 <p align="center">
   <a name="video" href=""><img src="assets/vid.gif" alt="" width="400"></a>
